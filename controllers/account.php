@@ -6,11 +6,22 @@ class Account extends Controller {
         parent::__construct();
     }
 
-    public function login($param = null) {
-        require 'models/account-model.php';
-        $model = new AccountModel();
+    public function index() {
 
+    }
+
+    public function login() {
+        Session::init();
+        $logged = Session::get('loggedIn');
+        if ($logged == true) {
+            header('location: /dashboard');
+            exit;
+        }
         $this->view->render("account/login");
+    }
+
+    public function run($user = null, $pass = null) {
+        $this->data = $this->model->check_login();
     }
 
 }

@@ -8,4 +8,8 @@ class Error extends Controller {
         $this->view->render('error/index');
     }
 
+    public function index() {
+
+    }
+
 }
