@@ -9,7 +9,7 @@ class Account extends Controller {
     public function login($param = null) {
         require 'models/account-model.php';
         $model = new AccountModel();
-        
+
         $this->view->render("account/login");
     }
 
